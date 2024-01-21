@@ -5,14 +5,18 @@ import { useCart } from "../Carrito/CartContext";
 
 function ProductAll() {
   const [products, setAllProducts] = useState([]);
-  const { addToCart } = useCart();
+  const { cartItems, addToCart, removeFromCart } = useCart();
 
   const allProducts = async () => {
-    const data = await fetch("https://fakestoreapi.com/products");
-    const productsData = await data.json();
-    setAllProducts(productsData);
+    try {
+      const data = await fetch("https://fakestoreapi.com/products");
+      const productsData = await data.json();
+      setAllProducts(productsData);
+    } catch (error) {
+      console.error("Error en la solicitud:", error);
+    }
   };
-
+  
   useEffect(() => {
     allProducts();
   }, []);
@@ -23,6 +27,18 @@ function ProductAll() {
       stars.push(<HiStar key={i} className="text-yellow-400" />);
     }
     return stars;
+  };
+
+  const isProductInCart = (productId) => {
+    return cartItems.some((item) => item.id === productId);
+  };
+
+  const handleCartAction = (product) => {
+    if (isProductInCart(product.id)) {
+      removeFromCart(product.id);
+    } else {
+      addToCart(product);
+    }
   };
 
   return (
@@ -52,13 +68,13 @@ function ProductAll() {
                 </div>
               </div>
               <a
-                onClick={() => addToCart(product)}
-                href="#"
-                className="flex items-center justify-center rounded-md bg-[#e57308] px-4 sm:px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-customBlue focus:outline-none focus:ring-4 focus:ring-blue-300"
-              >
-                <BsCart2 className="text-white text-xl mr-2 h-6 w-6"/>
-                Agregar al carrito
-              </a>
+              onClick={() => handleCartAction(product)}
+              href="#"
+              className={`flex items-center justify-center rounded-md ${isProductInCart(product.id) ? 'bg-red-500' : 'bg-[#e57308]'} px-4 sm:px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-customBlue focus:outline-none focus:ring-4 focus:ring-${isProductInCart(product.id) ? 'red-300' : 'blue-300'} mt-2`}
+            >
+              <BsCart2 className="text-white text-xl mr-2 h-6 w-6"/>
+              {isProductInCart(product.id) ? 'Eliminar del carrito' : 'Agregar al carrito'}
+            </a>
             </div>
           </div>
         ))}
