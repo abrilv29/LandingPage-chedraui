@@ -5,6 +5,8 @@ import HomePage from "./componentes/Landing/Home/HomePage";
 import CartDetails from "./componentes/Carrito/CartDetails";
 import CategoriaMens from "./componentes/Categorias/CategoriaMens";
 import CategoriaJeweler from "./componentes/Categorias/CategoriaJeweler";
+import ProductAll from "./componentes/Productos/ProductAll";
+
 const App = () => {
   return (
     <Router>
@@ -15,6 +17,7 @@ const App = () => {
         <Route path="/detalles-compra" element={<CartDetails />} />
         <Route path="/categoria-jeweler" element={<CategoriaJeweler />} /> 
         <Route path="/categoria-mens" element={<CategoriaMens />} />
+        <Route path="/catalogo-productos" element={<ProductAll />} />
 
       </Routes>
     </Router>
