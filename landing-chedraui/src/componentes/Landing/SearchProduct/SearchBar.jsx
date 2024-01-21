@@ -27,7 +27,7 @@ const SearchBar = () => {
     placeholder="Buscar productos..."
     value={searchTerm}
     onChange={handleSearchChange}
-    className="w-full rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none shadow-sm sm:text-sm"
+    className="w-96 rounded-md border border-gray-300 py-2.5 px-3 focus:outline-none shadow-sm sm:text-sm"
   />
 
   <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
