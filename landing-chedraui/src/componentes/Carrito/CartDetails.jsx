@@ -4,4 +4,4 @@ function CartDetails() {
     )
   }
   
-  export default CartDetails
+  export default CartDetails;
