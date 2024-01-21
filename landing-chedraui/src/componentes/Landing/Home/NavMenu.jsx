@@ -4,8 +4,12 @@ import logo from "../../../assets/img/logo.png";
 import { TbUser } from "react-icons/tb";
 import { SlLocationPin } from "react-icons/sl";
 import CartButton from "../../Carrito/CartButtom";
+import { useCart } from "../../Carrito/CartContext";
 
 function NavMenu() {
+  const { cartItems } = useCart();
+  console.log(cartItems);
+  
   return (
     <>
     <LinksNav />
@@ -32,7 +36,7 @@ function NavMenu() {
           </div>
 
           {/* Carrito de compras boton*/}
-          <CartButton />
+          <CartButton cartItemCount={cartItems.length} />
 
         </div>
       </div>

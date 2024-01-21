@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-
 import { HiStar } from "react-icons/hi";
 import { BsCart2 } from "react-icons/bs";
-
+import { useCart } from "../Carrito/CartContext";
 
 function ProductAll() {
   const [products, setAllProducts] = useState([]);
+  const { addToCart } = useCart();
 
   const allProducts = async () => {
-    const data = await fetch('https://fakestoreapi.com/products');
+    const data = await fetch("https://fakestoreapi.com/products");
     const productsData = await data.json();
     setAllProducts(productsData);
-  }
+  };
 
   useEffect(() => {
     allProducts();
@@ -23,12 +23,12 @@ function ProductAll() {
       stars.push(<HiStar key={i} className="text-yellow-400" />);
     }
     return stars;
-  }
+  };
 
   return (
     <div className="container mx-auto max-w-screen-xl p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {products.map(product => (
+        {products.map((product) => (
           <div key={product.id} className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
             <a className="relative mx-auto mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
               <img
@@ -52,6 +52,7 @@ function ProductAll() {
                 </div>
               </div>
               <a
+                onClick={() => addToCart(product)}
                 href="#"
                 className="flex items-center justify-center rounded-md bg-[#e57308] px-4 sm:px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-customBlue focus:outline-none focus:ring-4 focus:ring-blue-300"
               >
@@ -65,7 +66,5 @@ function ProductAll() {
     </div>
   );
 }
-
-
 
 export default ProductAll;
