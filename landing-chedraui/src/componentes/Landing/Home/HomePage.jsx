@@ -3,6 +3,7 @@ import CartCagory from "../CartCagory"
 import Newsletter from "./Newsletter"
 import Footer from "./Footer"
 import Online from "../Online"
+import CarouselMarcas from "../CarrucelMarcas"
 
 
 function HomePage() {
@@ -11,8 +12,10 @@ function HomePage() {
       <CartCagory />
       <ProductAll />
       <Online/>
+      <CarouselMarcas />
       <Newsletter/>
       <Footer/>
+
     </>
   )
 }
