@@ -51,6 +51,7 @@ const SearchResults = () => {
 
               {/* Carrito de compras*/}
               <p>Información adicional para el producto buscado</p>
+              <button>Agregar al Carrito</button>
 
             </div>
         </div> //envuelve a todos

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavMenu from "./componentes/Landing/Home/NavMenu";
-import SearchResults from "./componentes/Landing/SearchProduct/SearchBar";
+import SearchResults from "./componentes/Landing/SearchProduct/SearchResult";
 import HomePage from "./componentes/Landing/Home/HomePage";
 import CartDetails from "./componentes/Carrito/CartDetails";
 import CategoriaMens from "./componentes/Categorias/CategoriaMens";
