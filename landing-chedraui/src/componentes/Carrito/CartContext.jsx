@@ -30,9 +30,14 @@ export const CartProvider = ({ children }) => {
     setCartItems([]); // Limpia el carrito estableciendo un array vacío
   };
 
+  const removeItem = (itemId) => {
+    removeFromCart(itemId);
+  };
+  
+
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, getCartDetails, clearCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, getCartDetails, clearCart,     removeItem }}>
       {children}
     </CartContext.Provider>
   );
