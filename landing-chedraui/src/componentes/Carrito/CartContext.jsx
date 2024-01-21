@@ -22,9 +22,17 @@ export const CartProvider = ({ children }) => {
     setCartItems(updatedCart);
   };
 
+  const getCartDetails = () => {
+    return cartItems;
+  };
+
+  const clearCart = () => {
+    setCartItems([]); // Limpia el carrito estableciendo un array vacío
+  };
+
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, getCartDetails, clearCart }}>
       {children}
     </CartContext.Provider>
   );
