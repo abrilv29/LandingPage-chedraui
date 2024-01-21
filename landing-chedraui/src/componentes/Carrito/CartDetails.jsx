@@ -1,5 +1,7 @@
 import { useCart } from "./CartContext";
 import { useState } from "react";
+import { ImArrowRight2 } from "react-icons/im";
+import { IoCloseCircleOutline } from "react-icons/io5";
 
 
 function CartDetails() {
@@ -42,7 +44,7 @@ function CartDetails() {
     <section className="h-screen bg-gray-100 py-12 sm:py-16 lg:py-20">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center">
-          <h1 className="text-3xl font-semibold text-gray-900">Tu Carrito de Compras</h1>
+          <h1 className="text-3xl font-monserrat font-semibold text-customBlue">Tu Carrito de Compras</h1>
         </div>
 
         <div className="mx-auto mt-8 max-w-2xl md:mt-12">
@@ -56,7 +58,7 @@ function CartDetails() {
                   >
                     <div className="shrink-0">
                       <img
-                        className="h-24 w-24 max-w-full rounded-lg object-cover"
+                        className="h-24 w-24 max-w-full rounded-lg object-contain"
                         src={item.image}
                         alt={item.title}
                       />
@@ -66,7 +68,7 @@ function CartDetails() {
                       <div className="sm:grid sm:grid-cols-2">
                         <div className="pr-8 sm:pr-5">
                           <p className="text-lg font-semibold text-gray-900">{item.title}</p>
-                          <p className="mt-1 text-sm text-gray-500">{`Size: ${item.size}`}</p>
+                          <p className="mt-1 text-sm text-gray-500">{`${item.category}`}</p>
                         </div>
 
                         <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
@@ -100,15 +102,7 @@ function CartDetails() {
                           className="flex items-center p-2 text-gray-500 hover:text-gray-900 transition-all duration-200 ease-in-out focus:shadow"
                           onClick={() => handleRemoveItem(item.id)}
                         >
-                          <svg
-                            className="h-5 w-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                          </svg>
+                          <IoCloseCircleOutline className="text-red-500 text-3xl" />
                         </button>
                       </div>
                     </div>
@@ -118,15 +112,15 @@ function CartDetails() {
 
               <div className="mt-6 border-t border-b py-2">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm text-gray-500">Subtotal</p>
-                  <p className="text-lg font-semibold text-gray-900">{`$${calculateTotal().toFixed(2)}`}</p>
+                  <p className="text-sm font-monserrat text-gray-500">Subtotal</p>
+                  <p className="text-lg font-monserrat font-semibold text-gray-900">{`$${calculateTotal().toFixed(2)}`}</p>
                 </div>
               </div>
 
               <div className="mt-6 flex items-center justify-between">
-                <p className="text-sm font-medium text-gray-900">Total</p>
+                <p className="text-sm font-monserrat font-medium text-gray-900">Total</p>
                 <p className="text-2xl font-semibold text-gray-900">
-                  <span className="text-xs font-normal text-gray-400">$</span>
+                  <span className="text-xs font-monserrat font-normal text-gray-400">$</span>
                   {`${calculateTotal().toFixed(2)}`}
                 </p>
               </div>
@@ -134,20 +128,13 @@ function CartDetails() {
               <div className="mt-6 text-center">
                 <button
                   type="button"
-                  className="group inline-flex w-full items-center justify-center rounded-md bg-gray-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
+                  className="group inline-flex w-full items-center justify-center rounded-md bg-orange-500 px-6 py-4 text-lg font-monserrat font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-orange-300"
                   onClick={handlePlaceOrder}
                 >
                   Proceder al Pago
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="group-hover:ml-4 h-6 w-6 transition-all"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                  </svg>
+
+                  <ImArrowRight2 className=" text-white group-hover:ml-4 h-6 w-6 transition-all text-4xl ml-2"/>
+                 
                 </button>
               </div>
             </div>
