@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductList from "../Productos/ProductList"
+import Breadcrumb from '../Landing/Breadcrumb';
 
 const CategoriaJeweler = () => {
   const [products, setProducts] = useState([]);
@@ -19,7 +20,9 @@ const CategoriaJeweler = () => {
   }, []);
 
   return (
+    <><Breadcrumb />
     <ProductList productList={products} />
+    </>
   );
 };
 

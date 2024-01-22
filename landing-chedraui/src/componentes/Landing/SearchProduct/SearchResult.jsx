@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import ProductList from "../../Productos/ProductList"
 import { useLocation } from 'react-router-dom';
+import Breadcrumb from '../Breadcrumb';
 
 const SearchResults = () => {
   const location = useLocation();
@@ -29,6 +30,9 @@ const SearchResults = () => {
     product.title.toLowerCase().includes(searchTerm.toLowerCase());
 
   return (
+
+    <>
+    <Breadcrumb />
     <div className="flex flex-col">
       <h2 className="my-4 mx-7 text-2xl font-monserrat font-bold text-customBlue">Resultados de búsqueda para: {searchTerm}</h2>
       {loading ? (
@@ -39,6 +43,7 @@ const SearchResults = () => {
         <p>No se encontraron resultados.</p>
       )}
     </div>
+    </>
   );
 };
 

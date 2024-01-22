@@ -7,6 +7,7 @@ import CarouselMarcas from "../CarrucelMarcas";
 import HeaderPage from "./HeaderPage";
 import Ofertas from "../Ofertas";
 
+
 function HomePage() {
   return (
     <div className="container mx-auto">

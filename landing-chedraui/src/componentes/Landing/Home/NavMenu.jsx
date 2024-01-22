@@ -5,6 +5,7 @@ import { TbUser } from "react-icons/tb";
 import { SlLocationPin } from "react-icons/sl";
 import CartButton from "../../Carrito/CartButtom";
 import { useCart } from "../../Carrito/CartContext";
+import CategoryDropdown from "../../Categorias/CategoryDropdown";
 
 function NavMenu() {
   const { cartItems } = useCart();
@@ -18,6 +19,10 @@ function NavMenu() {
         {/* Contenido del logotipo */}
         <img className="w-40 md:w-32 lg:w-48 h-auto md:h-auto mb-4 md:mb-0" src={logo} alt="logo" />
 
+        {/* Menu de categorias */}
+      <div className="flex items-center space-x-4">
+        <CategoryDropdown />
+      </div>
         {/* Barra de búsqueda */}
         <div className=" flex  items-center  justify-center w-full  md:w-auto md:ml-4">
           <SearchBar />

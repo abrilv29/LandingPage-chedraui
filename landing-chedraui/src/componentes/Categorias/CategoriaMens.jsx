@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProductList from '../Productos/ProductList';
+import Breadcrumb from '../Landing/Breadcrumb';
 
 const CategoriaMens = () => {
   
@@ -21,7 +22,10 @@ const CategoriaMens = () => {
   }, []);
 
   return (
+    <>
+    <Breadcrumb />
     <ProductList productList={products} />
+    </>
   );
 };
 
