@@ -26,7 +26,7 @@ function Online() {
 
             <div className="flex flex-col items-center justify-center rounded-lg border border-gray-100 px-4 py-8 text-center">
               <img src={pago} alt="" className="mx-auto mb-4 w-16 h-16 object-contain" />
-              <p className="text-lg font-medium text-gray-500">Paga en línea o a contraentrega</p>
+              <p className="text-lg font-medium text-gray-500">Paga en línea o contraentrega</p>
             </div>
           </div>
         </div>

@@ -28,20 +28,26 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+    <div className="relative m-4 sm:m-6 lg:m-8 mx-auto flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+      {/* Imagen */}
       <a className="relative mx-auto mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
         <img
-          className="object-contain w-full"
+          className="object-cover w-full h-60"
           src={product.image || ''}
           alt={product.title || ''}
         />
         <span className="absolute top-0 left-0 m-2 rounded-full bg-customBlue px-2 text-center text-sm font-medium text-white">Nuevo</span>
       </a>
-      <div className="mt-4 px-5 pb-5">
+
+      {/* Contenido */}
+      <div className="mt-4 px-4 sm:px-6 pb-6">
+        {/* Título */}
         <a href="#">
           <h5 className="tracking-tight text-slate-900 text-sm font-montserrat font-semibold">{product.title || ''}</h5>
         </a>
-        <div className="mt-2 mb-5 flex items-center justify-between">
+
+        {/* Precio y Calificación */}
+        <div className="mt-2 mb-4 sm:mb-6 flex items-center justify-between">
           <p>
             <span className="text-3xl font-montserrat font-bold text-slate-900">${product.price || ''}</span>
           </p>
@@ -50,6 +56,8 @@ const ProductCard = ({ product }) => {
             <span className="mr-2 ml-3 rounded bg-yellow-300 px-2.5 py-0.5 text-xs font-montserrat font-semibold">{product.rating.rate}</span>
           </div>
         </div>
+
+        {/* Botón de Carrito */}
         <a
           onClick={handleCartAction}
           href="#"
@@ -68,11 +76,10 @@ ProductCard.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired, // Agregar esta línea para validar la propiedad image
+    image: PropTypes.string.isRequired,
     rating: PropTypes.shape({
-      rate: PropTypes.number.isRequired, // Agregar esta línea para validar la propiedad rating.rate
+      rate: PropTypes.number.isRequired,
     }).isRequired,
-    // ... otras propiedades del producto
   }).isRequired,
 };
 
