@@ -11,7 +11,7 @@ function CartCagory() {
               <div className="grid place-content-center rounded bg-gray-100 p-6 sm:p-8">
                 <div className="mx-auto max-w-md text-center lg:text-left">
                   <header>
-                    <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">Productos</h2>
+                    <h2 className="text-xl font-monserrat font-bold text-customBlue sm:text-3xl">Productos</h2>
     
                     <p className="mt-4 text-gray-500">
                       Explora nuestra selección de productos de alta calidad. Encuentra lo mejor entre los más populares, ¡porque mereces solo lo mejor!

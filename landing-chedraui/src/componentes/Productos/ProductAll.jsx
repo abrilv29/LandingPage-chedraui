@@ -43,7 +43,11 @@ function ProductAll() {
  // };
 
   return (
-    <ProductList productList={products} />
+    <>
+    <div className="flex items-start">
+      <h3 className="text-customBlue font-medium font-monserrat text-3xl mx-4">Encuentra los mejores productos</h3>
+    </div>
+    <ProductList productList={products} /></>
   );
 }
 
