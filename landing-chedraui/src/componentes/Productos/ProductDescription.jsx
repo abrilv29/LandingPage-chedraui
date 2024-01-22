@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useCart } from '../Carrito/CartContext';
 import { HiStar } from 'react-icons/hi';
 import { BsCart2 } from 'react-icons/bs';
+import Breadcrumb from '../Landing/Breadcrumb';
+
 
 const ProductDescription = () => {
     const { id } = useParams();
@@ -60,6 +62,8 @@ const ProductDescription = () => {
     };
 
     return (
+        <>
+        <Breadcrumb />
         <div className="flex justify-center items-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl p-8 border border-gray-300 rounded-lg font-montserrat">
                 {/* Columna izquierda para la imagen */}
@@ -94,6 +98,7 @@ const ProductDescription = () => {
                 </div>
             </div>
         </div>
+    </>
     );
 };
 
