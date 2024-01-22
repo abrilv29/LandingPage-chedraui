@@ -1,8 +1,8 @@
-// ProductCard.jsx
 import PropTypes from 'prop-types';
 import { HiStar } from 'react-icons/hi';
 import { BsCart2 } from 'react-icons/bs';
 import { useCart } from '../Carrito/CartContext';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
   const { cartItems, addToCart, removeFromCart } = useCart();
@@ -30,21 +30,21 @@ const ProductCard = ({ product }) => {
   return (
     <div className="relative m-4 sm:m-6 lg:m-8 mx-auto flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
       {/* Imagen */}
-      <a className="relative mx-auto mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
+      <Link to={`/detalle-producto/${product.id}`}>
         <img
-          className="object-cover w-full h-60"
+          className="object-contain w-full h-48 sm:h-60 md:h-72 lg:h-80"
           src={product.image || ''}
           alt={product.title || ''}
         />
         <span className="absolute top-0 left-0 m-2 rounded-full bg-customBlue px-2 text-center text-sm font-medium text-white">Nuevo</span>
-      </a>
+      </Link>
 
       {/* Contenido */}
       <div className="mt-4 px-4 sm:px-6 pb-6">
         {/* Título */}
-        <a href="#">
+        <Link to={`/detalle-producto/${product.id}`}>
           <h5 className="tracking-tight text-slate-900 text-sm font-montserrat font-semibold">{product.title || ''}</h5>
-        </a>
+        </Link>
 
         {/* Precio y Calificación */}
         <div className="mt-2 mb-4 sm:mb-6 flex items-center justify-between">
@@ -58,14 +58,13 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Botón de Carrito */}
-        <a
+        <button
           onClick={handleCartAction}
-          href="#"
           className={`flex items-center justify-center rounded-md ${isProductInCart(product.id) ? 'bg-red-500' : 'bg-[#e57308]'} px-4 sm:px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-customBlue focus:outline-none focus:ring-4 focus:ring-${isProductInCart(product.id) ? 'red-300' : 'blue-300'} mt-2`}
         >
           <BsCart2 className="text-white text-xl mr-2 h-6 w-6"/>
           {isProductInCart(product.id) ? 'Eliminar del carrito' : 'Agregar al carrito'}
-        </a>
+        </button>
       </div>
     </div>
   );

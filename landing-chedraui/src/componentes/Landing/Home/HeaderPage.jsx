@@ -2,6 +2,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import linea from "../../../assets/img/banner-linea.png";
+import jabon from "../../../assets/img/banner-jabon.png";
+import sonido from "../../../assets/img/banner-sonido.png";
+import ejercicio from "../../../assets/img/banner-gym.png";
 import nutricion from "../../../assets/img/slider-dos.png";
 import verduras from "../../../assets/img/slider-uno.png";
 import aseo from "../../../assets/img/aseo.png";
@@ -39,21 +42,21 @@ function HeaderPage() {
         </div>
         <div>
           <img
-            src="https://via.placeholder.com/800x400"
+            src={jabon}
             alt="Slide 2"
             className="w-full h-auto max-h-72 md:max-h-96 lg:max-h-120"
           />
         </div>
         <div>
           <img
-            src="https://via.placeholder.com/800x400"
+            src={sonido}
             alt="Slide 3"
              className="w-full h-auto max-h-72 md:max-h-96 lg:max-h-120 object-fit-cover"
             />
         </div>
         <div>
           <img
-            src="https://via.placeholder.com/800x400"
+            src={ejercicio}
             alt="Slide 4"
             className="w-full h-auto max-h-72 md:max-h-96 lg:max-h-120"
           />
